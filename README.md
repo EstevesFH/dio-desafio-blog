@@ -1,139 +1,133 @@
-![Netlify Next.js Blog Template designed by Bejamas](github-banner.svg)
+# 📝 Blog com Next.js e Supabase
 
-[![Deploy to Netlify Button](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/netlify-templates/nextjs-blog-theme)
+![Next.js](https://img.shields.io/badge/Next.js-latest-black?style=for-the-badge&logo=next.js)
+![React](https://img.shields.io/badge/React-18-blue?style=for-the-badge&logo=react)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.0-38B2AC?style=for-the-badge&logo=tailwind-css)
+![Supabase](https://img.shields.io/badge/Supabase-Database-green?style=for-the-badge&logo=supabase)
 
-A customizable blog starter using:
+## 📋 Sobre o Projeto
 
-- [Next.js](https://github.com/vercel/next.js) v12
-- [Tailwind](https://tailwindcss.com/) v3.0
-- Built-in [MDX](https://mdxjs.com/) v1 support
-- Includes modern design with dark & light themes
+Blog moderno e responsivo desenvolvido com Next.js, integrado com Supabase como banco de dados. O projeto foi criado como parte do desafio da DIO (Digital Innovation One), implementando funcionalidades de listagem e visualização de posts armazenados em um banco de dados real.
 
-> 🎉 We’re really excited about the Bejamas + Netlify collaboration and we were going to celebrate it with some swag, but we realized we could put that money into supporting OSS and our ecosystem even more! After all, who needs another t-shirt or sticker?!
->
-> [Click this link](https://oss-form.netlify.app/) to vote for your favorite Open Source project!
+## ✨ Funcionalidades
 
-![Preview of blog theme. Author named Jay Doe and blog's name is "Next.js Blog Theme" with one blog post](nextjs-blog-theme-preview.png)
+- ✅ **Listagem de Posts**: Página inicial exibindo todos os posts cadastrados
+- ✅ **Detalhes do Post**: Página individual para visualizar o conteúdo completo de cada post
+- ✅ **Integração com Supabase**: Consumo de API REST do Supabase para gerenciamento de dados
+- ✅ **Design Responsivo**: Interface adaptável para todos os tamanhos de tela
+- ✅ **Modo Escuro**: Suporte a tema claro e escuro
+- ✅ **Server-Side Rendering (SSR)**: Carregamento otimizado com Next.js
 
-[Take a gander at the demo.](https://bejamas-nextjs-blog.netlify.app)
+## 🚀 Tecnologias Utilizadas
 
-[Click here to watch the template walkthrough!](https://www.youtube.com/watch?v=63QZHs259dY)
+- **[Next.js](https://nextjs.org/)** - Framework React para produção
+- **[React](https://react.dev/)** - Biblioteca para interfaces de usuário
+- **[Tailwind CSS](https://tailwindcss.com/)** - Framework CSS utilitário
+- **[Supabase](https://supabase.com/)** - Backend as a Service (BaaS)
+- **[Axios](https://axios-http.com/)** - Cliente HTTP para requisições
+- **[next-mdx-remote](https://github.com/hashicorp/next-mdx-remote)** - Renderização de conteúdo MDX
 
-## Table of Contents:
+## 🎯 O que foi Implementado por Mim
 
-- [Getting Started](#getting-started)
-  - [Setting Up Locally](#setting-up-locally)
-  - [Using the Wizard](#using-the-setup-wizard)
-- [Configuring the Blog](#configuring-the-blog)
-- [Adding New Posts](#adding-new-posts)
-- [Testing](#testing)
-  - [Included Default Testing](#included-default-testing)
-  - [Removing Renovate](#removing-renovate)
-  - [Removing Cypress](#removing-cypress)
+### 1. Integração com API Supabase
+- Configuração do cliente Axios com autenticação
+- Implementação das funções `getPosts()` e `getPostBySlug()`
+- Tratamento de erros e logs para debugging
 
-## Getting Started
+### 2. Páginas Dinâmicas
+- Ajuste da página inicial (`index.js`) para consumir dados da API
+- Correção de bugs (typo `created_ate` → `created_at`)
+- Implementação da página de detalhes do post (`[id].js`)
+
+### 3. Configurações e Correções
+- Correção do caminho do `tailwind-preset` no `tailwind.config.js`
+- Ajuste dos imports dos componentes para a estrutura de pastas correta
+- Configuração do ambiente de desenvolvimento
+
+## 📂 Estrutura do Projeto
+
+```
+📦 dio-desafio-blog
+ ┣ 📂 components/          # Componentes React reutilizáveis
+ ┣ 📂 src/
+ ┃ ┣ 📂 pages/            # Páginas Next.js
+ ┃ ┃ ┣ 📂 posts/
+ ┃ ┃ ┃ ┗ 📜 [id].js       # Página de detalhes do post (implementado)
+ ┃ ┃ ┣ 📜 index.js        # Página inicial (modificado)
+ ┃ ┃ ┗ 📜 _app.js
+ ┃ ┣ 📂 services/
+ ┃ ┃ ┗ 📜 api.js          # Configuração Axios/Supabase (implementado)
+ ┃ ┗ 📂 utils/
+ ┃   ┣ 📜 mdx-utils.js    # Funções de API (implementado)
+ ┃   ┗ 📜 global-data.js
+ ┣ 📂 styles/
+ ┣ 📜 package.json
+ ┣ 📜 tailwind.config.js  # Configuração Tailwind (corrigido)
+ ┗ 📜 README.md
+```
+
+## 🛠️ Como Executar
+
+### Pré-requisitos
+- Node.js 14+
+- Yarn ou npm
+
+### Instalação
+
+1. Clone o repositório
+```bash
+git clone https://github.com/seu-usuario/dio-desafio-blog.git
+cd dio-desafio-blog
+```
+
+2. Instale as dependências
+```bash
+yarn install
+# ou
+npm install
+```
+
+3. Configure as variáveis de ambiente (opcional)
+```bash
+# Crie um arquivo .env.local
+BLOG_NAME=DIO Blog
+BLOG_TITLE=Blog em NextJS
+BLOG_FOOTER_TEXT=All rights reserved.
+```
+
+4. Execute o servidor de desenvolvimento
+```bash
+yarn dev
+# ou
+npm run dev
+```
+
+5. Acesse http://localhost:3000 no navegador
+
+## 🗄️ Estrutura do Banco de Dados (Supabase)
+
+Tabela: `posts`
+
+| Coluna       | Tipo      | Descrição                    |
+|--------------|-----------|------------------------------|
+| id           | bigint    | ID único do post (PK)        |
+| title        | text      | Título do post               |
+| description  | text      | Descrição/resumo             |
+| body         | text      | Conteúdo completo do post    |
+| created_at   | timestamp | Data de criação              |
+
+## 🎨 Preview
+
+![Preview da aplicação](https://via.placeholder.com/800x400/1e293b/ffffff?text=Blog+Preview)
+
+## 📝 Licença
+
+Este projeto está sob a licença MIT.
+
+## 👨‍💻 Autor
+
+Desenvolvido como parte do desafio da **Digital Innovation One (DIO)**
 
 ---
 
-You can get started with this project in two ways: locally or using the [setup wizard](https://nextjs-wizard.netlify.app/).
-
-### Setting Up Locally
-
-If you're doing it locally, start with clicking the [use this template](https://github.com/netlify-templates/nextjs-blog-theme/generate) button on GitHub. This will create a new repository with this template's files on your GitHub account. Once that is done, clone your new repository and navigate to it in your terminal.
-
-From there, you can install the project's dependencies by running:
-
-```shell
-yarn install
-```
-
-Finally, you can run your project locally with:
-
-```shell
-yarn run dev
-```
-
-Open your browser and visit <http://localhost:3000>, your project should be running!
-
-### Using the Setup Wizard
-
-![Preview of Setup Wizard showing the initial page of a setup form](nextjs-setup-wizard.png)
-
-Through the [setup wizard](https://nextjs-wizard.netlify.app/), you can create your blog in a few clicks and deploy to Netlify.
-
-## Configuring the blog
-
-The config is based on environment variables to make it easy to integrate with any Jamstack platform, like Netlify.
-
-Here are the variables you can edit:
-| Variable | Description | Options
-| --- | --- | --- |
-| `BLOG_NAME` | the name of your blog, displayed below the avatar ||
-| `BLOG_TITLE` | the main header (`h1`) on the home page ||
-| `BLOG_FOOTER_TEXT`| the text in the footer ||
-| `BLOG_THEME` | the theme to pass to Tailwind | default |
-| `BLOG_FONT_HEADINGS` | the font-family for all HTML headings, from `h1` to `h6`| sans-serif (default), serif, monospace|
-| `BLOG_FONT_PARAGRAPHS` | the font-family for all other HTML elements | sans-serif (default), serif, monospace|
-
-All of the env variables can be configured through the [Wizard](https://nextjs-wizard.netlify.app/) or through setting the project's environment variables. You can do this in your Netlify dashaboard (Site settings/Build & deploy/Environment/Environment variables).
-
-https://user-images.githubusercontent.com/3611928/153997545-6dcdeef0-e570-49e7-93d6-ce0d393d16c9.mp4
-
-[alt: video walkthrough of editing env vars]
-
-If setting an environment variable isn't your cup of tea, the defaults can be changed in [`utils/global-data.js`](/utils/global-data.js). You can also remove the variables and hard code blog information where these variables are used in the code base.
-
-- `BLOG_THEME, BLOG_FONT_HEADINGS, & BLOG_FONT_PARAGRAPHS` are used in [`tailwind-preset.js`](tailwind-preset.js)
-- `BLOG_NAME, BLOG_TITLE, BLOG_FOOTER_TEXT` are used in [`pages/index.js`](pages/index.js) & [`pages/posts/[slug].js`](pages/posts/[slug].js) through the `globalData` object.
-
-## Adding new posts
-
-All posts are stored in `/posts` directory. To make a new post, create a new file with the [`.mdx` extension](https://mdxjs.com/).
-
-Since the posts are written in `MDX` format you can pass props and components. That means you can use [React components](https://reactjs.org/docs/components-and-props.html) inside your posts to make them more interactive. Learn more about how to do so in the [MDX docs on content](https://mdxjs.com/docs/using-mdx/#components).
-
-https://user-images.githubusercontent.com/3611928/152727802-102ec296-41c8-446d-93ed-922d11187073.mp4
-
-[alt: video walkthrough of adding a new blog post]
-
-## Testing
-
-### Included Default Testing
-
-We’ve included some tooling that helps us maintain these templates. This template currently uses:
-
-- [Renovate](https://www.mend.io/free-developer-tools/renovate/) - to regularly update our dependencies
-- [Cypress](https://www.cypress.io/) - to run tests against how the template runs in the browser
-- [Cypress Netlify Build Plugin](https://github.com/cypress-io/netlify-plugin-cypress) - to run our tests during our build process
-
-If your team is not interested in this tooling, you can remove them with ease!
-
-### Removing Renovate
-
-In order to keep our project up-to-date with dependencies we use a tool called [Renovate](https://github.com/marketplace/renovate). If you’re not interested in this tooling, delete the `renovate.json` file and commit that onto your main branch.
-
-### Removing Cypress
-
-For our testing, we use [Cypress](https://www.cypress.io/) for end-to-end testing. This makes sure that we can validate that our templates are rendering and displaying as we’d expect. By default, we have Cypress not generate deploy links if our tests don’t pass. If you’d like to keep Cypress and still generate the deploy links, go into your `netlify.toml` and delete the plugin configuration lines:
-
-```diff
-[[plugins]]
-  package = "netlify-plugin-cypress"
--  [plugins.inputs.postBuild]
--    enable = true
--
--  [plugins.inputs]
--    enable = false
-```
-
-If you’d like to remove the `netlify-plugin-cypress` build plugin entirely, you’d need to delete the entire block above instead. And then make sure sure to remove the package from the dependencies using:
-
-```bash
-npm uninstall -D netlify-plugin-cypress
-```
-
-And lastly if you’d like to remove Cypress entirely, delete the entire `cypress` folder and the `cypress.config.ts` file. Then remove the dependency using:
-
-```bash
-npm uninstall cypress
-```
+⭐ Se este projeto te ajudou, considere dar uma estrela no repositório!
